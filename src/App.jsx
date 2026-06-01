@@ -25,9 +25,12 @@ function App() {
       <main>
         {data.map((item, index) => {
           return(
-            <div>
-              <h2>{item.name}</h2>
-              <img src={item.image} alt="" />
+            <div key={index}>
+              <img src={item.image} alt={item.name} />
+              <h4>Name: {item.name}</h4>
+              <p>Species: {item.species}</p>
+              {item.status === "Dead" ? "Status: ☠" : item.status === "Status: Alive" ? "😊" : <p>Status: {item.status}</p>}
+              <p>Origin: {item.origin.name}</p>
             </div>
           )
         })}
